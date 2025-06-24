@@ -4,16 +4,12 @@ import {
   Typography,
   Box,
   Avatar,
-  Grid,
-  Card,
-  CardContent,
-  LinearProgress,
   Chip,
   Paper,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { Code } from "@mui/icons-material";
+import { Code, Work } from "@mui/icons-material";
 import karthikPic from "../ImagesAndFiles/Karthik-Passport-Pic.jpeg";
 
 const Home = () => {
@@ -21,22 +17,22 @@ const Home = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const skills = [
-    { name: "Java", level: 85, category: "Backend" },
-    { name: "Spring Boot", level: 85, category: "Backend" },
-    { name: "AWS Services", level: 70, category: "Cloud" },
-    { name: "Angular", level: 85, category: "Frontend" },
-    { name: "React", level: 40, category: "Frontend" },
-    { name: "Node.js", level: 85, category: "Backend" },
-    { name: "JavaScript", level: 70, category: "Frontend" },
-    { name: "TypeScript", level: 80, category: "Frontend" },
-    { name: "Terraform", level: 85, category: "DevOps" },
-    { name: "SonarQube", level: 80, category: "DevOps" },
-    { name: "Git", level: 95, category: "DevOps" },
-    { name: "GitHub", level: 90, category: "DevOps" },
-    { name: "Bitbucket", level: 85, category: "DevOps" },
-    { name: "Jenkins", level: 80, category: "DevOps" },
-    { name: "MYSQL", level: 70, category: "Database" },
-    { name: "Postgresql", level: 70, category: "Database" },
+    { name: "Java", category: "Backend" },
+    { name: "Spring Boot", category: "Backend" },
+    { name: "AWS Services", category: "Cloud" },
+    { name: "Angular", category: "Frontend" },
+    { name: "React", category: "Frontend" },
+    { name: "Node.js", category: "Backend" },
+    { name: "JavaScript", category: "Frontend" },
+    { name: "TypeScript", category: "Frontend" },
+    { name: "Terraform", category: "DevOps" },
+    { name: "SonarQube", category: "DevOps" },
+    { name: "Git", category: "DevOps" },
+    { name: "GitHub", category: "DevOps" },
+    { name: "Bitbucket", category: "DevOps" },
+    { name: "Jenkins", category: "DevOps" },
+    { name: "MYSQL", category: "Database" },
+    { name: "Postgresql", category: "Database" },
   ];
 
   const coursesAndCertifications = [
@@ -54,35 +50,77 @@ const Home = () => {
     },
   ];
 
+  const workExperience = [
+    {
+      title: "Java Full Stack Developer",
+      company: "Gavs Technologies",
+      period: "Jan 2025 - Present",
+      description: "Developed and integrated new features in a Spring Boot-based microservice application, enhancing business functionality and ensuring seamless interaction across distributed services. Optimized backend logic using data structures like Map, Set, and List along with algorithms such as sliding window and two-pointer, reducing time complexity and improving data retrieval efficiency from MySQL. Data Cleanup Automation: Developed a scheduled cron-based Lambda function to purge records older than 1 year from the MySQL database, improving data consistency and performance. AWS Serverless Development: Designed and deployed AWS Lambda functions using the Serverless Framework and Terraform for scheduled tasks via cron triggers to automate backend processes. Upgraded Spring Boot applications to the latest stable versions by resolving deprecated methods, replacing outdated dependencies, and ensuring backward compatibility. Designed secure REST APIs by implementing JWT-based authentication, enforcing token validation on each request and significantly improving the overall security posture of the application. Frontend Development: Built responsive and accessible UI components in React using Material UI, enhancing user experience and interface intuitiveness. Documented end-to-end test scenarios to support QA testing and executed load and performance testing using AWS CloudWatch and JMeter, ensuring system scalability and stability under peak load. AWS, SpringBoot, React, Node JS, Sonar, Jenkins, Docker, PostgreSQL, MYSQL, JavaScript,Junit, Terraform."
+    },
+    {
+      title: "Software Development Engineer",
+      company: "Fidelity Investments",
+      period: "Oct 2023 - Oct 2024",
+      description: "API Development: Designed and developed RESTful API endpoints using Spring Boot, enabling seamless interaction between backend services and Angular frontend components. Frontend Development: Built intuitive and responsive user interfaces using Angular, enhancing user experience and optimizing UI performance. Security Implementation: Integrated Spring Security with JWT token-based authentication, generating and validating tokens for each API request to ensure secure and stateless communication. Authentication & Authorization: Implemented robust user authentication and role-based authorization, ensuring controlled access across the application. Backend Development: Developed scalable backend services using Node.js and TypeScript, improving system performance by 20% through code optimization and modularization. Data Structures & Algorithms: Utilized advanced DSA techniques including HashMap, List interfaces, Sliding Window, and Two-Pointer approaches to optimize logic and application performance. Leveraged Java Streams API for concise and efficient data processing. CI/CD Pipelines: Deployed applications using CI/CD pipelines with custom Jenkins pipeline stages, ensuring seamless integration. Managed the transition of environments from passive to active states, ensuring minimal downtime and maintaining application stability with rollback strategies Java, TypeScript, Jenkins, DynamoDB, MySQL, Node JS, Angular, Sonar, Karma and Jasmine.",
+    },
+  ];
+
   return (
-    <>
-      <Box sx={{ pt: 10, minHeight: "100vh" }}>
-        <Container maxWidth="lg">
-          {/* Hero Section */}
-          <Box
-            sx={{
-              textAlign: "center",
-              py: 8,
-              background:
-                "linear-gradient(135deg, rgba(100, 181, 246, 0.1) 0%, rgba(245, 0, 87, 0.1) 100%)",
-              borderRadius: 4,
-              mb: 8,
-            }}
-          >
+    <Box sx={{ display: "flex", minHeight: "100vh", pt: 2 }}>
+      {/* Fixed Left Sidebar - Profile Navigation */}
+      <Box
+        sx={{
+          width: isMobile ? "100%" : 380,
+          position: isMobile ? "relative" : "fixed",
+          height: isMobile ? "auto" : "100vh",
+          overflowY: "auto",
+          p: 2,
+          backgroundColor: "background.default",
+          borderRight: isMobile ? "none" : "1px solid",
+          borderRightColor: "divider",
+          zIndex: 1000,
+          "&::-webkit-scrollbar": {
+            width: "6px",
+          },
+          "&::-webkit-scrollbar-track": {
+            background: "rgba(0,0,0,0.1)",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            background: "rgba(100, 181, 246, 0.5)",
+            borderRadius: "3px",
+          },
+          "&::-webkit-scrollbar-thumb:hover": {
+            background: "rgba(100, 181, 246, 0.7)",
+          },
+        }}
+      >
+        <Paper
+          sx={{
+            p: 4,
+            minHeight: "fit-content",
+            background:
+              "linear-gradient(135deg, rgba(100, 181, 246, 0.1) 0%, rgba(245, 0, 87, 0.1) 100%)",
+            backdropFilter: "blur(10px)",
+            border: "1px solid rgba(100, 181, 246, 0.2)",
+            borderRadius: 4,
+          }}
+        >
+          {/* Profile Picture and Basic Info */}
+          <Box sx={{ textAlign: "center", mb: 4 }}>
             <Avatar
               src={karthikPic}
               alt="Karthik Siva"
               sx={{
-                width: isMobile ? 150 : 200,
-                height: isMobile ? 150 : 200,
+                width: isMobile ? 120 : 150,
+                height: isMobile ? 120 : 150,
                 mx: "auto",
-                mb: 4,
+                mb: 3,
                 border: "4px solid",
                 borderColor: "primary.main",
               }}
             />
             <Typography
-              variant={isMobile ? "h3" : "h2"}
+              variant={isMobile ? "h5" : "h4"}
               component="h1"
               gutterBottom
               sx={{
@@ -95,17 +133,21 @@ const Home = () => {
             >
               Karthik Siva
             </Typography>
-            <Typography variant="h5" color="text.secondary" gutterBottom>
+            <Typography variant="h6" color="text.secondary" gutterBottom>
               Full Stack Developer
             </Typography>
+          </Box>
+
+          {/* About Me */}
+          <Box sx={{ mb: 4 }}>
+            <Typography variant="h6" gutterBottom sx={{ fontWeight: "bold" }}>
+              About Me
+            </Typography>
             <Typography
-              variant="body1"
+              variant="body2"
               sx={{
-                maxWidth: 600,
-                mx: "auto",
-                mt: 3,
                 lineHeight: 1.8,
-                fontSize: "1.1rem",
+                fontSize: "0.95rem",
               }}
             >
               I am passionate about creating innovative solutions and always
@@ -115,154 +157,145 @@ const Home = () => {
               development, cloud technologies, and modern DevOps practices.
             </Typography>
           </Box>
-          
-          {/* Skills Section */}
-          <Grid
-            container
-            spacing={3}
-            sx={{ justifyContent: "center", alignItems: "stretch" }}
-          >
-            {skills.map((skill, index) => (
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                md={4}
-                lg={3}
-                key={index}
-                sx={{ display: "flex" }}
-              >
-                <Card
-                  sx={{
-                    width: "100%",
-                    minHeight: 120,
-                    background:
-                      "linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(26, 26, 26, 0.4) 100%)",
-                    backdropFilter: "blur(10px)",
-                    border: "1px solid rgba(100, 181, 246, 0.2)",
-                    transition: "transform 0.3s ease-in-out",
-                    display: "flex",
-                    flexDirection: "column",
-                    "&:hover": {
-                      transform: "translateY(-5px)",
-                      boxShadow: "0 10px 20px rgba(100, 181, 246, 0.3)",
-                    },
-                  }}
-                >
-                  <CardContent
-                    sx={{
-                      flexGrow: 1,
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-                      <Typography
-                        variant="h6"
-                        component="div"
-                        sx={{
-                          flexGrow: 1,
-                          fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem" },
-                        }}
-                      >
-                        {skill.name}
-                      </Typography>
-                      <Chip
-                        label={skill.category}
-                        size="small"
-                        color="primary"
-                        variant="outlined"
-                        sx={{ fontSize: { xs: "0.7rem", sm: "0.75rem" } }}
-                      />
-                    </Box>
-                    <Box sx={{ display: "flex", alignItems: "center" }}>
-                      <Box sx={{ width: "100%", mr: 1 }}>
-                        <LinearProgress
-                          variant="determinate"
-                          value={skill.level}
-                          sx={{
-                            height: { xs: 6, sm: 8 },
-                            borderRadius: 5,
-                            backgroundColor: "rgba(100, 181, 246, 0.2)",
-                            "& .MuiLinearProgress-bar": {
-                              borderRadius: 5,
-                              background:
-                                "linear-gradient(90deg, #64b5f6 0%, #f50057 100%)",
-                            },
-                          }}
-                        />
-                      </Box>
-                      <Box sx={{ minWidth: { xs: 30, sm: 35 } }}>
-                        <Typography
-                          variant="body2"
-                          color="text.secondary"
-                          sx={{ fontSize: { xs: "0.8rem", sm: "0.875rem" } }}
-                        >
-                          {skill.level}%
-                        </Typography>
-                      </Box>
-                    </Box>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
 
-          {/* Certifications and Courses */}
-          <Grid container spacing={4} sx={{ mb: 8, mt: 6 }}>
-            <Grid item xs={12}>
-              <Paper
+          {/* Skills */}
+          <Box>
+            <Typography variant="h6" gutterBottom sx={{ fontWeight: "bold" }}>
+              Skills
+            </Typography>
+            <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+              {skills.map((skill, index) => (
+                <Chip
+                  key={index}
+                  label={skill.name}
+                  size="small"
+                  color="primary"
+                  variant="outlined"
+                  sx={{ 
+                    fontSize: "0.7rem",
+                    mb: 1,
+                  }}
+                />
+              ))}
+            </Box>
+          </Box>
+        </Paper>
+      </Box>
+
+      {/* Main Content Area */}
+      <Box
+        sx={{
+          flexGrow: 1,
+          ml: isMobile ? 0 : "380px",
+          p: 3,
+          backgroundColor: "background.default",
+        }}
+      >
+        <Container maxWidth="lg">
+          {/* Work Experience Section */}
+          <Paper
+            sx={{
+              p: 4,
+              mb: 4,
+              background:
+                "linear-gradient(135deg, rgba(100, 181, 246, 0.1) 0%, rgba(245, 0, 87, 0.1) 100%)",
+              backdropFilter: "blur(10px)",
+              border: "1px solid rgba(100, 181, 246, 0.2)",
+              borderRadius: 4,
+            }}
+          >
+            <Typography
+              variant="h4"
+              gutterBottom
+              sx={{ display: "flex", alignItems: "center", mb: 3 }}
+            >
+              <Work sx={{ mr: 2, color: "primary.main" }} />
+              Work Experience
+            </Typography>
+            {workExperience.map((job, index) => (
+              <Box
+                key={index}
                 sx={{
-                  p: 4,
-                  background:
-                    "linear-gradient(135deg, rgba(100, 181, 246, 0.1) 0%, rgba(245, 0, 87, 0.1) 100%)",
-                  backdropFilter: "blur(10px)",
-                  border: "1px solid rgba(100, 181, 246, 0.2)",
+                  py: 3,
+                  px: 3,
+                  mb: 3,
+                  backgroundColor: "rgba(100, 181, 246, 0.1)",
+                  borderRadius: 3,
+                  borderLeft: "4px solid",
+                  borderLeftColor: "primary.main",
                 }}
               >
-                <Typography
-                  variant="h4"
-                  gutterBottom
-                  sx={{ display: "flex", alignItems: "center", mb: 3 }}
-                >
-                  <Code sx={{ mr: 2, color: "primary.main" }} />
-                  Courses and Certifications
+                <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
+                  {job.title}
                 </Typography>
-                {coursesAndCertifications.map((item, index) => (
-                  <Box
-                    key={index}
-                    sx={{
-                      py: 3,
-                      px: 3,
-                      mb: 3,
-                      backgroundColor: "rgba(100, 181, 246, 0.1)",
-                      borderRadius: 3,
-                      borderLeft: "4px solid",
-                      borderLeftColor: "primary.main",
-                    }}
-                  >
-                    <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
-                      {item.title}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                      sx={{ mb: 2, fontStyle: "italic" }}
-                    >
-                      {item.period}
-                    </Typography>
-                    <Typography variant="body1" sx={{ lineHeight: 1.6 }}>
-                      {item.description}
-                    </Typography>
-                  </Box>
-                ))}
-              </Paper>
-            </Grid>
-          </Grid>
+                <Typography variant="subtitle1" color="primary" sx={{ mb: 1 }}>
+                  {job.company}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{ mb: 2, fontStyle: "italic" }}
+                >
+                  {job.period}
+                </Typography>
+                <Typography variant="body1" sx={{ lineHeight: 1.6 }}>
+                  {job.description}
+                </Typography>
+              </Box>
+            ))}
+          </Paper>
+
+          {/* Courses and Certifications Section */}
+          <Paper
+            sx={{
+              p: 4,
+              background:
+                "linear-gradient(135deg, rgba(100, 181, 246, 0.1) 0%, rgba(245, 0, 87, 0.1) 100%)",
+              backdropFilter: "blur(10px)",
+              border: "1px solid rgba(100, 181, 246, 0.2)",
+              borderRadius: 4,
+            }}
+          >
+            <Typography
+              variant="h4"
+              gutterBottom
+              sx={{ display: "flex", alignItems: "center", mb: 3 }}
+            >
+              <Code sx={{ mr: 2, color: "primary.main" }} />
+              Courses and Certifications
+            </Typography>
+            {coursesAndCertifications.map((item, index) => (
+              <Box
+                key={index}
+                sx={{
+                  py: 3,
+                  px: 3,
+                  mb: 3,
+                  backgroundColor: "rgba(100, 181, 246, 0.1)",
+                  borderRadius: 3,
+                  borderLeft: "4px solid",
+                  borderLeftColor: "primary.main",
+                }}
+              >
+                <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
+                  {item.title}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{ mb: 2, fontStyle: "italic" }}
+                >
+                  {item.period}
+                </Typography>
+                <Typography variant="body1" sx={{ lineHeight: 1.6 }}>
+                  {item.description}
+                </Typography>
+              </Box>
+            ))}
+          </Paper>
         </Container>
       </Box>
-    </>
+    </Box>
   );
 };
 
