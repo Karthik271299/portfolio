@@ -11,12 +11,12 @@ import { Download } from '@mui/icons-material';
 const Resume = () => {
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/Karthik-CV.pdf'; 
-    link.download = 'Karthik-CV.pdf';
+    link.href = '/Karthik-Updated_CV_2025.pdf'; 
+    link.download = 'Karthik-Updated_CV_2025.pdf';
     link.click();
   };
 
-  const resumeUrl = '/Karthik-CV.pdf'
+  const resumeUrl = '/Karthik-Updated_CV_2025.pdf'
 
   return (
     <Box sx={{ pt: 10, minHeight: '100vh', pb: 4 }}>
